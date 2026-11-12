@@ -1,0 +1,50 @@
+{
+  "name": "crypto-float-widget-remote",
+  "version": "0.1.1",
+  "description": "桌面浮窗行情：连接远程行情服务器（HTTP + WebSocket）",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "koffi": "^2.14.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "electron": "^45.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.trae.crypto-float-widget-remote",
+    "productName": "CryptoFloatRemote",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/node_modules/koffi/**"
+    ],
+    "npmRebuild": false,
+    "compression": "maximum",
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "CryptoFloatRemote-${version}.exe"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+    <title>行情浮窗</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="panel">
+      <header class="bar">
+        <span class="dot connecting" id="dot"></span>
+        <span class="status-text" id="statusText">连接中</span>
+        <span class="grow"></span>
+        <button class="icon" id="btnAdd" title="添加币种">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M8 3.5v9M3.5 8h9" />
+          </svg>
+        </button>
+        <button class="icon" id="btnPin" title="置顶">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M8 2v3.4M5.2 5.4h5.6l-.7 3.6H5.9L5.2 5.4ZM8 9v5" />
+          </svg>
+        </button>
+        <button class="icon" id="btnSet" title="设置">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="8" cy="8" r="2.2" />
+            <path d="M8 1.6v1.7M8 12.7v1.7M1.6 8h1.7M12.7 8h1.7M3.5 3.5l1.2 1.2M11.3 11.3l1.2 1.2M12.5 3.5l-1.2 1.2M4.7 11.3l-1.2 1.2" />
+          </svg>
+        </button>
+        <button class="icon close" id="btnClose" title="退出">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M4 4l8 8M12 4l-8 8" />
+          </svg>
+        </button>
+      </header>
+
+      <main id="list" class="list">
+        <div class="cols">
+          <span>币种</span>
+          <span class="right">最新价</span>
+          <span class="right">24h 涨跌</span>
+        </div>
+        <div id="rows"></div>
+      </main>
+
+      <section id="searchView" class="view hidden">
+        <div class="view-head">
+          <button class="link" id="searchBack">← 返回</button>
+          <span>添加币种</span>
+        </div>
+        <input id="q" class="input" placeholder="搜索合约，如 BTC / NVDA" autocomplete="off" />
+        <div id="results" class="results"></div>
+      </section>
+
+      <div id="grip" class="grip" title="拖拽调整大小"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
